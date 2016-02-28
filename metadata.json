@@ -8,6 +8,6 @@
   "source": "https://github.com/jaschac/docker-nginx",
   "summary": "Deploys an Nginx container.",
   "tags":["nginx", "web", "web server"],
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
 
