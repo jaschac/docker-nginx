@@ -11,3 +11,4 @@ ADD scripts/setup.sh /usr/local/sbin/setup.sh
 EXPOSE 80
 EXPOSE 443
 CMD setup.sh
+CMD ["/usr/local/sbin/setup.sh"]
