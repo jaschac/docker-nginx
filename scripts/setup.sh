@@ -3,7 +3,7 @@
 # This scripts sets the container up the container with the desiered service(s) properly running.
 #
 
-set -e -x
+set -e
 
 : ${NGINX_PID:="/run/nginx.pid"}
 : ${NGINX_USERNAME:="www-data"}
@@ -28,7 +28,7 @@ else
 	echo "Cannot find /etc/nginx/nginx.conf" >> /dev/stderr
 	exit 1
 fi
-touch /tmp/foo1
+
 # Check if /var/www exists.
 if [ -d /var/www ]
 then
@@ -39,7 +39,7 @@ else
 	echo "/var/www does not exist." >> /dev/stderr
 	exit 1
 fi
-touch /tmp/foo2
+
 # Check if the Nginx configuration is correct
 /usr/sbin/nginx -c /etc/nginx/nginx.conf -t >/dev/null 2>&1
 if [ $? -eq 1 ]
@@ -47,7 +47,6 @@ then
 	echo "The Nginx's configuration is not correct." >> /dev/stderr
 	exit 1
 fi
-touch /tmp/foo3
+
 # Start Nginx
 /usr/sbin/nginx -c /etc/nginx/nginx.conf
-touch /tmp/foo4
